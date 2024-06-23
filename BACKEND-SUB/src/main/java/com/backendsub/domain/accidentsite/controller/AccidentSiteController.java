@@ -6,10 +6,7 @@ import com.backendsub.domain.accidentsite.service.AccidentSiteService;
 import com.backendsub.global.util.HttpResponseUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -22,10 +19,9 @@ public class AccidentSiteController {
     private final AccidentSiteService accidentSiteService;
     private final HttpResponseUtil responseUtil;
     @GetMapping("/accidentsite")
-    public ResponseEntity<?> findAccidentSite(@ModelAttribute AccidentSiteRequestDto requestDto) {
+    public ResponseEntity<?> findAccidentSite(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude)) {
 
-        System.out.println(requestDto.getLatitude()+" "+requestDto.getLongitude());
-        List<AccidentSite> responses = accidentSiteService.findNearByLocation(requestDto);
+        List<AccidentSite> responses = accidentSiteService.findNearByLocation(latitude, longitude);
         ResponseEntity<Map<String, Object>> response = responseUtil.createResponse(responses);
         return response;
 
