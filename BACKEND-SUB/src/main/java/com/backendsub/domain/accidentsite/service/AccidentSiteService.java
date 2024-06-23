@@ -1,10 +1,14 @@
 package com.backendsub.domain.accidentsite.service;
 
+import com.backendsub.domain.accidentsite.model.AccidentSite;
 import com.backendsub.domain.accidentsite.repository.AccidentSiteRepository;
+import com.backendsub.domain.accidentsite.requestDto.AccidentSiteRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -14,5 +18,9 @@ public class AccidentSiteService {
 
     private final AccidentSiteRepository accidentSiteRepository;
 
-
+    @Transactional
+    public List<AccidentSite> findNearByLocation(AccidentSiteRequestDto requestDto){
+        List<AccidentSite> response = accidentSiteRepository.findNearByLocation(requestDto);
+        return response;
+    }
 }
