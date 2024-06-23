@@ -25,23 +25,25 @@ public class AccidentSiteServiceTest {
     @Mock
     private AccidentSiteRepository accidentSiteRepository;
 
-    private AccidentSiteRequestDto requestDto;
-
     @Mock
     private List<AccidentSite> accidentSites;
 
+    private double latitude;
+    private double longitude;
+
     @BeforeEach
     public void init(){
-        requestDto = new AccidentSiteRequestDto(36.445326,127.425863);
+        latitude = 36.445326;
+        longitude = 127.425863;
     }
 
     @Test
     @DisplayName("사고 우발지 조회 성공 테스트")
     public void 사고_우발지_조회_성공_테스트(){
         //given
-        BDDMockito.given(accidentSiteRepository.findNearByLocation(requestDto)).willReturn(accidentSites);
+        BDDMockito.given(accidentSiteRepository.findNearByLocation(latitude, longitude)).willReturn(accidentSites);
 
         //when
-        List<AccidentSite> responses = accidentSiteService.findNearByLocation(requestDto);
+        List<AccidentSite> responses = accidentSiteService.findNearByLocation(latitude, longitude);
     }
 }
