@@ -1,4 +1,4 @@
-package com.backendsub.repository;
+package com.backendsub.domain.accidentsite.repository;
 
 import com.backendsub.domain.accidentsite.model.AccidentSite;
 import org.springframework.data.jpa.repository.JpaRepository;
