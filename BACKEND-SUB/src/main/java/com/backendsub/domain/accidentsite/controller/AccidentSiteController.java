@@ -24,6 +24,7 @@ public class AccidentSiteController {
     @GetMapping("/accidentsite")
     public ResponseEntity<?> findAccidentSite(@ModelAttribute AccidentSiteRequestDto requestDto) {
 
+        System.out.println(requestDto.getLatitude()+" "+requestDto.getLongitude());
         List<AccidentSite> responses = accidentSiteService.findNearByLocation(requestDto);
         ResponseEntity<Map<String, Object>> response = responseUtil.createResponse(responses);
         return response;

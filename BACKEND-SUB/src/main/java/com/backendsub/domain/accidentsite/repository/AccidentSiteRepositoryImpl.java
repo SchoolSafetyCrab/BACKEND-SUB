@@ -25,7 +25,7 @@ public class AccidentSiteRepositoryImpl implements AccidentSiteRepositoryCustom{
                                 "ST_Distance_Sphere(POINT({0}, {1}), POINT({2}, {3})) <= {4}",
                                 requestDto.getLongitude(), requestDto.getLatitude(),
                                 accidentSite.longitude, accidentSite.latitude,
-                                5000
+                                10000
                         )
                 )
                 .orderBy(
