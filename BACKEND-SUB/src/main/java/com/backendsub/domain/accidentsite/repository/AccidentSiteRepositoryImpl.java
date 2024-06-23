@@ -2,7 +2,6 @@ package com.backendsub.domain.accidentsite.repository;
 
 import com.backendsub.domain.accidentsite.model.AccidentSite;
 import com.backendsub.domain.accidentsite.model.QAccidentSite;
-import com.backendsub.domain.accidentsite.requestDto.AccidentSiteRequestDto;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

@@ -2,7 +2,6 @@ package com.backendsub.domain.accidentsite.service;
 
 import com.backendsub.domain.accidentsite.model.AccidentSite;
 import com.backendsub.domain.accidentsite.repository.AccidentSiteRepository;
-import com.backendsub.domain.accidentsite.requestDto.AccidentSiteRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

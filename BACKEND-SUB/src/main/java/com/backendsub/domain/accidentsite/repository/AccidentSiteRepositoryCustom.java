@@ -1,7 +1,6 @@
 package com.backendsub.domain.accidentsite.repository;
 
 import com.backendsub.domain.accidentsite.model.AccidentSite;
-import com.backendsub.domain.accidentsite.requestDto.AccidentSiteRequestDto;
 
 import java.util.List;
 

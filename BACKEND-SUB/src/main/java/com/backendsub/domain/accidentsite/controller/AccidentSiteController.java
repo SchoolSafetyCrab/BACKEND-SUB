@@ -1,7 +1,6 @@
 package com.backendsub.domain.accidentsite.controller;
 
 import com.backendsub.domain.accidentsite.model.AccidentSite;
-import com.backendsub.domain.accidentsite.requestDto.AccidentSiteRequestDto;
 import com.backendsub.domain.accidentsite.service.AccidentSiteService;
 import com.backendsub.global.util.HttpResponseUtil;
 import lombok.RequiredArgsConstructor;
