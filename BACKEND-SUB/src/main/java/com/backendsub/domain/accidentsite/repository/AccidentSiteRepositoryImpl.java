@@ -23,7 +23,7 @@ public class AccidentSiteRepositoryImpl implements AccidentSiteRepositoryCustom{
                 .where(
                         Expressions.booleanTemplate(
                                 "ST_Distance_Sphere(POINT({0}, {1}), POINT({2}, {3})) <= {4}",
-                                latitude, latitude,
+                                longitude, latitude,
                                 accidentSite.longitude, accidentSite.latitude,
                                 10000
                         )
@@ -32,7 +32,7 @@ public class AccidentSiteRepositoryImpl implements AccidentSiteRepositoryCustom{
                         Expressions.numberTemplate(
                                 Double.class,
                                 "ST_Distance_Sphere(POINT({0}, {1}), POINT({2}, {3}))",
-                                latitude, latitude,
+                                longitude, latitude,
                                 accidentSite.longitude, accidentSite.latitude
                         ).asc()
                 )
