@@ -1,4 +1,4 @@
-package com.backendsub.domain.accidentsite;
+package com.backendsub.domain.accidentsite.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
