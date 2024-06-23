@@ -67,3 +67,17 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+def generated = 'src/main/generated'
+
+tasks.withType(JavaCompile) {
+	options.getGeneratedSourceOutputDirectory().set(file(generated))
+}
+
+sourceSets {
+	main.java.srcDirs += [ generated ]
+}
+
+// clean 시 generated 파일 제거
+clean {
+	delete file('src/main/generated')
+}
