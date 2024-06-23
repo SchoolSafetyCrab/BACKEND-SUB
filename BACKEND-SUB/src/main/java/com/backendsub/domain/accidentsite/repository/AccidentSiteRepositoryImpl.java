@@ -17,13 +17,13 @@ public class AccidentSiteRepositoryImpl implements AccidentSiteRepositoryCustom{
     private QAccidentSite accidentSite = QAccidentSite.accidentSite;
 
     @Override
-    public List<AccidentSite> findNearByLocation(AccidentSiteRequestDto requestDto) {
+    public List<AccidentSite> findNearByLocation(double latitude, double longitude) {
         return queryFactory
                 .selectFrom(accidentSite)
                 .where(
                         Expressions.booleanTemplate(
                                 "ST_Distance_Sphere(POINT({0}, {1}), POINT({2}, {3})) <= {4}",
-                                requestDto.getLongitude(), requestDto.getLatitude(),
+                                latitude, latitude,
                                 accidentSite.longitude, accidentSite.latitude,
                                 10000
                         )
@@ -32,7 +32,7 @@ public class AccidentSiteRepositoryImpl implements AccidentSiteRepositoryCustom{
                         Expressions.numberTemplate(
                                 Double.class,
                                 "ST_Distance_Sphere(POINT({0}, {1}), POINT({2}, {3}))",
-                                requestDto.getLongitude(), requestDto.getLatitude(),
+                                latitude, latitude,
                                 accidentSite.longitude, accidentSite.latitude
                         ).asc()
                 )
