@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 @WebMvcTest(
-        controllers = EmergencyAlarmControllerTest.class
+        controllers = EmergencyAlarmController.class
 )
 @MockBean(JpaMetamodelMappingContext.class)
 public class EmergencyAlarmControllerTest {
