@@ -71,8 +71,6 @@ public class AccidentSiteControllerTest {
                 .contentType(MediaType.APPLICATION_JSON));
 
         // then
-
         result.andExpect(MockMvcResultMatchers.status().isOk());
-
     }
 }

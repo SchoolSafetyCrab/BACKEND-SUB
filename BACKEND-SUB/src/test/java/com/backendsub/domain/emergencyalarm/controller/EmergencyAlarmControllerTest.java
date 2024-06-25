@@ -72,7 +72,6 @@ public class EmergencyAlarmControllerTest {
                 .contentType(MediaType.APPLICATION_JSON));
 
         //then
-
         result.andExpect(MockMvcResultMatchers.status().isOk());
 
     }
