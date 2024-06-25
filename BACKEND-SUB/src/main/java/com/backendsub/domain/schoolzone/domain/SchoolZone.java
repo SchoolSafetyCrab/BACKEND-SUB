@@ -2,6 +2,7 @@ package com.backendsub.domain.schoolzone.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -36,4 +37,26 @@ public class SchoolZone {
 
     @Column(name = "width")
     private int width;
+
+    @Builder
+    private SchoolZone(String type, String name, String address, double latitude, double longitude, int cctvNum, int width) {
+        this.type = type;
+        this.name = name;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.cctvNum = cctvNum;
+        this.width = width;
+    }
+
+    public static SchoolZone createSchoolZone(String type, String name, String address, double latitude, double longitude, int cctvNum, int width) {
+        return SchoolZone.builder()
+                .type(type)
+                .name(name)
+                .address(address)
+                .latitude(latitude)
+                .longitude(longitude)
+                .cctvNum(cctvNum)
+                .width(width).build();
+    }
 }
