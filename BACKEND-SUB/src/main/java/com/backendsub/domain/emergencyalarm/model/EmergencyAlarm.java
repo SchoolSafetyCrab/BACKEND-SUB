@@ -2,10 +2,13 @@ package com.backendsub.domain.emergencyalarm.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "emergency_alarm")
 public class EmergencyAlarm {
 
@@ -24,10 +27,29 @@ public class EmergencyAlarm {
     private double longitude;
 
     @Column(name = "connection")
-    private String connection;
+    @Enumerated(EnumType.STRING)
+    private Connection connection;
 
     @Column(name = "add_function")
     private String addFunction;
 
+    @Builder
+    private EmergencyAlarm(String address, double latitude, double longitude, Connection connection, String addFunction) {
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.connection = connection;
+        this.addFunction = addFunction;
+    }
+
+    public static EmergencyAlarm createEmergencyAlarm(String address, double latitude, double longitude, Connection connection, String addFunction) {
+        return EmergencyAlarm.builder()
+                .address(address)
+                .latitude(latitude)
+                .longitude(longitude)
+                .connection(connection)
+                .addFunction(addFunction)
+                .build();
+    }
 
 }
