@@ -18,10 +18,10 @@ public class AccidentSiteController {
     private final AccidentSiteService accidentSiteService;
     private final HttpResponseUtil responseUtil;
 
-    @GetMapping("/accidentsite")
+    @GetMapping("/accident-site")
     public ResponseEntity<?> findAccidentSite(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude) {
 
-        List<AccidentSite> responses = accidentSiteService.findNearByLocation(latitude, longitude);
+        List<AccidentSite> responses = accidentSiteService.findAccidentSiteNearByLocation(latitude, longitude);
         ResponseEntity<Map<String, Object>> response = responseUtil.createResponse(responses);
         return response;
 

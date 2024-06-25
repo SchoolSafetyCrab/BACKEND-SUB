@@ -1,7 +1,7 @@
-package com.backendsub.domain.accidentsite.controller;
+package com.backendsub.domain.emergencyalarm.controller;
 
-import com.backendsub.domain.accidentsite.model.AccidentSite;
-import com.backendsub.domain.accidentsite.service.AccidentSiteService;
+import com.backendsub.domain.emergencyalarm.model.EmergencyAlarm;
+import com.backendsub.domain.emergencyalarm.service.EmergencyAlarmService;
 import com.backendsub.global.util.HttpResponseUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 @WebMvcTest(
-        controllers = AccidentSiteController.class
+        controllers = EmergencyAlarmController.class
 )
 @MockBean(JpaMetamodelMappingContext.class)
-public class AccidentSiteControllerTest {
+public class EmergencyAlarmControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -37,40 +37,42 @@ public class AccidentSiteControllerTest {
     private ObjectMapper objectMapper;
 
     @MockBean
-    private AccidentSiteService accidentSiteService;
+    private EmergencyAlarmService emergencyAlarmService;
 
     @MockBean
     private HttpResponseUtil responseUtil;
 
-    private List<AccidentSite> accidentSites;
+    private List<EmergencyAlarm> emergencyAlarms;
     private double latitude;
     private double longitude;
 
     @BeforeEach
     public void init(){
+        emergencyAlarms = new ArrayList<>();
         latitude = 36.445326;
         longitude = 127.425863;
-        accidentSites = new ArrayList<>();
     }
 
     @Test
-    @DisplayName("사고 우발지 조회 성공 테스트")
-    public void 사고_우발지_조회_성공_테스트() throws Exception {
-        // given
+    @DisplayName("비상벨_조회_성공_테스트")
+    public void 비상벨_조회_성공_테스트() throws Exception {
+        //given
         Map<String, Object> mockResponseData = new HashMap<>();
-        mockResponseData.put("data", accidentSites);
+        mockResponseData.put("data", emergencyAlarms);
 
-        BDDMockito.given(accidentSiteService.findAccidentSiteNearByLocation(latitude, longitude)).willReturn(accidentSites);
-        BDDMockito.given(responseUtil.createResponse(accidentSites))
+        BDDMockito.given(emergencyAlarmService.findEmergencyAlarmNearByLocation(latitude, longitude))
+                .willReturn(emergencyAlarms);
+        BDDMockito.given(responseUtil.createResponse(emergencyAlarms))
                 .willReturn(ResponseEntity.ok().body(mockResponseData));
 
-        // when
-        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/accident-site")
+        //when
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/emergency-alarm")
                 .param("latitude", String.valueOf(latitude))
                 .param("longitude", String.valueOf(longitude))
                 .contentType(MediaType.APPLICATION_JSON));
 
-        // then
+        //then
         result.andExpect(MockMvcResultMatchers.status().isOk());
+
     }
 }

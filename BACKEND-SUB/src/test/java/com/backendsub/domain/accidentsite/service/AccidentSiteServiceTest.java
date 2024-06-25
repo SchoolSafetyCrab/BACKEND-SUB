@@ -43,6 +43,6 @@ public class AccidentSiteServiceTest {
         BDDMockito.given(accidentSiteRepository.findNearByLocation(latitude, longitude)).willReturn(accidentSites);
 
         //when
-        List<AccidentSite> responses = accidentSiteService.findNearByLocation(latitude, longitude);
+        List<AccidentSite> responses = accidentSiteService.findAccidentSiteNearByLocation(latitude, longitude);
     }
 }
