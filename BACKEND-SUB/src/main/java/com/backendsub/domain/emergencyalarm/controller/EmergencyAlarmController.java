@@ -26,7 +26,7 @@ public class EmergencyAlarmController {
             @RequestParam("latitude") double latitude,
             @RequestParam("longitude") double longitude
     ) {
-        List<EmergencyAlarm> responses = emergencyAlarmService.findEmergencyAlarmNearByLocation(longitude, latitude);
+        List<EmergencyAlarm> responses = emergencyAlarmService.findEmergencyAlarmNearByLocation(latitude, longitude);
         ResponseEntity<Map<String, Object>> response = responseUtil.createResponse(responses);
         return response;
     }
