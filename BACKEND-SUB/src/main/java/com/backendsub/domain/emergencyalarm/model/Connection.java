@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Connection {
 
-    CONNECTION_ONEWAY("단방향"),
-    CONNECTION_TWO_WAY("양방향"),
-    CONNECTION_NON_LINKED("미연계");
+    단방향("단방향"),
+    양방향("양방향"),
+    미연계("미연계");
 
     private String connection;
 }
