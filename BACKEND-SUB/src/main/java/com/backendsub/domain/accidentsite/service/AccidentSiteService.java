@@ -19,7 +19,6 @@ public class AccidentSiteService {
 
     @Transactional
     public List<AccidentSite> findNearByLocation(double latitude, double longitude){
-        System.out.println(latitude+" "+longitude);
         List<AccidentSite> response = accidentSiteRepository.findNearByLocation(latitude, longitude);
         return response;
     }
