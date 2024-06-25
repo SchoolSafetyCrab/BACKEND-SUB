@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -66,7 +65,7 @@ public class AccidentSiteControllerTest {
                 .willReturn(ResponseEntity.ok().body(mockResponseData));
 
         // when
-        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/accidentsite")
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/accident-site")
                 .param("latitude", String.valueOf(latitude))
                 .param("longitude", String.valueOf(longitude))
                 .contentType(MediaType.APPLICATION_JSON));
