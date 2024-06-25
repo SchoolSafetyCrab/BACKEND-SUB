@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface AccidentSiteRepositoryCustom {
 
-    List<AccidentSite> findNearByLocation(double latitude, double longitude, double radius);
+    List<AccidentSite> findNearByLocation(double latitude, double longitude);
 }

@@ -1,0 +1,48 @@
+package com.backendsub.domain.accidentsite.service;
+
+import com.backendsub.domain.accidentsite.model.AccidentSite;
+import com.backendsub.domain.accidentsite.repository.AccidentSiteRepository;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@ExtendWith(MockitoExtension.class)
+public class AccidentSiteServiceTest {
+
+    @InjectMocks
+    private AccidentSiteService accidentSiteService;
+
+    @Mock
+    private AccidentSiteRepository accidentSiteRepository;
+
+    @Mock
+    private List<AccidentSite> accidentSites;
+
+    private double latitude;
+    private double longitude;
+
+    @BeforeEach
+    public void init(){
+        latitude = 36.445326;
+        longitude = 127.425863;
+    }
+
+    @Test
+    @DisplayName("사고 우발지 조회 성공 테스트")
+    public void 사고_우발지_조회_성공_테스트(){
+        //given
+        BDDMockito.given(accidentSiteRepository.findNearByLocation(latitude, longitude)).willReturn(accidentSites);
+
+        //when
+        List<AccidentSite> responses = accidentSiteService.findNearByLocation(latitude, longitude);
+    }
+}
