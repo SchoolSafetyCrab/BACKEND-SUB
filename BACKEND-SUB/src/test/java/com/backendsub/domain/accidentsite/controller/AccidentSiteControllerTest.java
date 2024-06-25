@@ -61,7 +61,7 @@ public class AccidentSiteControllerTest {
         Map<String, Object> mockResponseData = new HashMap<>();
         mockResponseData.put("data", accidentSites);
 
-        BDDMockito.given(accidentSiteService.findNearByLocation(latitude, longitude)).willReturn(accidentSites);
+        BDDMockito.given(accidentSiteService.findAccidentSiteNearByLocation(latitude, longitude)).willReturn(accidentSites);
         BDDMockito.given(responseUtil.createResponse(accidentSites))
                 .willReturn(ResponseEntity.ok().body(mockResponseData));
 
