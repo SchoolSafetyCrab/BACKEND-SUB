@@ -18,7 +18,7 @@ public class EmergencyAlarmService {
     private final EmergencyAlarmRepository emergencyAlarmRepository;
 
     @Transactional
-    public List<EmergencyAlarm> findEmergencyAlarmNearByLocation(long latitude, long longitude) {
+    public List<EmergencyAlarm> findEmergencyAlarmNearByLocation(double latitude, double longitude) {
         List<EmergencyAlarm> responses = emergencyAlarmRepository.findNearByLocation(latitude, longitude);
         return responses;
     }
