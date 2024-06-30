@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api/sub")
 public class SchoolZoneController {
 
     private final SchoolZoneService schoolZoneService;

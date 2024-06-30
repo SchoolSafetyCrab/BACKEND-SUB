@@ -66,7 +66,7 @@ public class EmergencyAlarmControllerTest {
                 .willReturn(ResponseEntity.ok().body(mockResponseData));
 
         //when
-        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/emergency-alarm")
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/sub/emergency-alarm")
                 .param("latitude", String.valueOf(latitude))
                 .param("longitude", String.valueOf(longitude))
                 .contentType(MediaType.APPLICATION_JSON));
