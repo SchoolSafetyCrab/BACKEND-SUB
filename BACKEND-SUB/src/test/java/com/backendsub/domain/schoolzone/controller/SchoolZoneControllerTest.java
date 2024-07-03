@@ -65,7 +65,7 @@ public class SchoolZoneControllerTest {
                 .willReturn(ResponseEntity.ok().body(mockResponseData));
 
         //when
-        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/school-zone")
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/sub/school-zone")
             .param("latitude", String.valueOf(latitude))
                 .param("longitude", String.valueOf(longitude))
                 .contentType(MediaType.APPLICATION_JSON));

@@ -65,7 +65,7 @@ public class AccidentSiteControllerTest {
                 .willReturn(ResponseEntity.ok().body(mockResponseData));
 
         // when
-        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/accident-site")
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/api/sub/accident-site")
                 .param("latitude", String.valueOf(latitude))
                 .param("longitude", String.valueOf(longitude))
                 .contentType(MediaType.APPLICATION_JSON));
